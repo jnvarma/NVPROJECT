@@ -1,0 +1,159 @@
+{% extends 'welcome.html' %} 
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Application Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 20px;
+    }
+
+    form {
+      background-color: #ffffff;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input[type="file"] {
+      border: none;
+    }
+
+    input[type="submit"] {
+      background-color: #3498db;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Job Application Form</h1>
+
+<form action="{% url "coordinator_application" %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+  <h5 style="font-weight:bold;"> Job Description:  Training Coordinator |2 to 5 years of experience| </h5>
+  <h6 style="font-weight:bold; margin-top:25px; margin-bottom:13px;"> Job Summary: </h6>
+  <p style="margin-left:30px; margin-bottom:18px;">We are looking for an experienced Training Coordinator to join our team. As a Training Coordinator, you will be responsible for planning, organizing, and implementing training programs for our employees. You will collaborate with various teams to ensure the effective delivery of training initiatives, monitor progress, and contribute to the continuous improvement of our training processes.</p>
+<h6 style="font-weight:bold;margin-bottom:13px; "> Key Responsibilities: </h6>
+
+<ul style="list-style-type:disc; "> 
+  <li> Collaborate with department managers to identify training needs and objectives.</li>
+  <li> Develop comprehensive training plans and schedules in alignment with organizational goals.</li>
+  <li>Coordinate the logistics of training programs, including scheduling venues, materials, and trainers. </li>
+  <li> Design and create training materials, presentations, and other resources.</li>
+  <li>Conduct engaging training sessions, workshops, and presentations.</li>
+  <li>Monitor and evaluate the effectiveness of training programs and gather feedback.</li>
+  <li> Assist in the development of e-learning modules and online training content.</li>
+  <li> Maintain accurate training records and ensure compliance with training standards.</li>
+  <li>Stay updated with industry trends and best practices in training and development. </li>
+</ul>
+
+<h6 style="font-weight:bold;margin-bottom:13px; "> Required Skills and Qualifications: </h6>
+<ul style="list-style-type:disc;"> 
+  <li> Bachelor's degree in Computer Science, Software Engineering, or a related field.</li>
+  <li> 2 to 5 years of experience in training coordination, employee development, or related roles.</li>
+  <li> Strong understanding of training methodologies and adult learning principles.</li>
+  <li> Excellent organizational and project management skills.</li>
+  <li> Proficiency in using training software, e-learning platforms, and multimedia tools.</li>
+  <li> Familiarity with learning management systems (LMS) is a plus.</li>
+  <li> Good communication skills and ability to work in a team environment.</li>
+   <li> Eagerness to learn and adapt to new technologies and development methodologies.</li>
+   <li> Detail-oriented with strong analytical and problem-solving abilities. </li>
+   <li> Certification in training and development is advantageous.</li>
+
+</ul>
+
+  <label for="name">First Name:</label>
+  <input type="text" id="name" name="name" required><br><br>
+  
+  <label for="name">last Name:</label>
+  <input type="text" id="last_name" name="last_name" required><br><br>
+  
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required><br><br>
+  
+  <label for="phone">Phone:</label>
+  <input type="tel" id="phone" name="phone" required><br><br>
+
+  <fieldset>
+    <legend>Education Details:</legend>
+    <label for="education_type">Education Type:</label>
+    <select id="education_type" name="education_type" required>
+      <option value="">Select Education Type</option>
+      <option value="bachelor">Bachelor</option>
+      <option value="master">Master</option>
+      <option value="doctorate">Doctorate</option>
+      <option value="doctorate">others</option>
+    </select><br><br>
+     
+  </fieldset>
+
+   <div style="margin-bottom:10px; margin-right:10px; ">
+  <label for="year_started">Year of started:</label>
+  <input type="date" id="year_started" name="year_started">
+   </div>
+
+   <div style="margin-bottom:30px;">
+  <label for="year_passed">Year of Passing:</label>
+  <input type="date" id="year_passed" name="year_passed">
+  </div>
+
+  <label for="skills">Skills:</label><br>
+  <textarea id="skills" name="skills" rows="4" cols="50" required></textarea><br><br>
+  
+  <label for="resume">Upload Resume:</label>
+  <input type="file" id="resume" name="resume" accept=".pdf, .doc, .docx" required><br><br>
+  
+  <label for="cover-letter">Cover Letter:</label><br>
+  <textarea id="cover-letter" name="cover-letter" rows="4" cols="50" required></textarea><br><br>
+  
+  
+  
+  <input type="submit" value="Submit Application">
+</form>
+
+</body>
+</html>
+
+
+{% endblock  %}

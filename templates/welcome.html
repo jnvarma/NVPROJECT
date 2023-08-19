@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .animated-text {
+      position: absolute;
+      top: 45%;
+      left: 38%;
+      
+      font-size: 40px;
+      font-weight: bold;
+      color:#dfe8f0;
+    }
+
+    .animated-text span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: slideIn 1.5s forwards ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  
+    {% load static %}
+    <title>{% block title %} simple page{% endblock %} </title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light navbar-color fixed-top ">
+        
+    
+      <img class="nav-image" src="data:image/webp;base64,UklGRhgTAABXRUJQVlA4IAwTAABQOAGdASroA/sCPt1urlAop6SiqXeokRAbiWVu//C8qCa4erpHl/GbPAeDKTPFaNL9C9xSuEhfRbH5fUR/nd5RSZd9b+a7OnNzF2Sxf09gbb6f9c/lB2FDhYv6ewNt9P+ufyg7ChwsX9PYG2+n/XP5QdhQ4WL+nsDbfT/rn8oOwocLF/T2Btvp/1z+UHYUOFi/p7A230/65/KDsKHCxf09gbb6f9c/lB2FDg6nGXhbrtPLc7jDvX6RJX+00yIJx3r9Ikr/aaZLYK2TekSV/qlcoEcd6ormNcO9fpElf7TTJbBWynzOHOlGJ8zhywWm7b6HCuFTaAPtRW89f+ZVXve973vSqHD68Th1dBRjHSMBQwCNEY9wgUVy45ToSqFGwNv0YSRp9AJ/myiPvyR0/66bKSOn/ZfbKJaewVOalocJYvggvXSdChDxYUOH106gFF/T0PYv6ewNt9P+ufyg6/kdzZQdBkgW0ljUv5QdhQmzDsKHN65/KDseIp/KDsK2j/rxfz+hwrhVTK2GBeT7SQA344m0CaCXJ4N3c9k7BNoE0YkiTQS5PBvFvsnYJtAmglyeDeLfZOtK/BNBLk8G8W+r1ddIVATy6ToRNuJ7huXyVh2xF1x6GHt6v6ewNt9RmmwNt9P+ufhAuiqCT8/k5c8J5L2C1D+2Zw50rlAjjvX6RJX+00yWwVsp8zhzpXKBHHev0iSv9ppktgrZT5nDnSuUCOM5InJ11w0Zfyp7AgBCBjxUPp8DkybDwqCxVogMJZjfDy9LfTmirRAX8mPFNYdYHA0P8uecJDb0RcKDYljOn3ZQEv9P+wAdt9P+ufyg7ChwsX9PYG3CA0Naf4IGDhLF8EF0F07Jgwufyg7Cieeufyg7ChQDqd6T6f96/TQJ+U1v07drn8W9YT/6uQVH2LjD0brvX6RJX+00yWwXaXev0iSv9ppktgrZT5nDnSuUCOO9fpElf6VkC7UruG1PHWO2pY+ufhAuhHXsWbRN6IeBVlkMRV3r9Ikr/aaZLYLtO677wfEcdyk4iu6v9ppkt4CKu9fm/MtJpccaLShtbM/4n0/naVPO7iIMLZnOmnHX52aMRmjEZoxGaMRmjEZoxGaMRmjEYw7Kbe385PVDkFiu00HX1W89w27/2E/kT5aFsCW7SGo471+kSV/tNMlsFbKfM4c6VygRx3r9IkroVfmLqaQ07JgmeibfVF4dhJUR61hwBU5mVtePlBxS1ssatSjOEn75qO4MXrmo65RO+Tnq+D4Ip6nFTskPBNst2/P6HCuFVKM7ulPg9GihXX8jpAw5WDXH8/VqcpAkD45mowtSjDeXaBIHxzNTPtm4Fh3OAaq7LdbESWHBL5ojX6euwD/0YMFw3rXkbSH2Z/D0eizzlNcYD45mowtSjDeXaBIHxzNRhZDH+Cp8zzPNBhNIadO7XCaLJAcWFDaPg9umzi87Nx6WLr+R05lyH4o+ik0EuTwbxb7J2CbQJoJcng28GHmC7z8zzPNBhNIadO7XCaLJAcWFDaPdKiFTdLmFG1YmSHiiXExou6csGilI2rUDC1KMN5doEhOUQQ0pWGyJnf2/zPM8zzQ5KXDTp3a4TRZIDiwobR7pgPQGs7pcwo2rEyQ8qwdPvWBp9UJDhce5meAMxvOWYr8X8itvJcOv1u9hYhopS+XRnm0rpyOo6m/qw409LpWdajFzPXP4t7kPO7pT4PRob7jht3/rpjCwNOM4jZ+VopE/f8jhzpWvbjkrMoi1Yl+c+eh2SblcVxXG9u9vRCprhrecez4T6dcGFzilsbcPr9a08rDhBT8CdrVTQeUcIgY2JN9c2Rw50rkjuL8y5sFwfSE6gfMIVjqOo6jqb+rDjS15cjdb9OH4dhJUR62Z/D0rQCXxUryOnMuQ3gyXDKz5ri77HM1HSuSXJ4N4wJUjaDc3v+RNqgqCoMcLxcPyelO2Zy/cP65+EDeb+R05mVtePlFlorkuHG76B/mYkr/aaZLYK2U+Zw50rlAjit0DkGZD0PQ9PU4qdkh4Jt4QEQkaDr6rd/P3ZQEw/xSj1uMvqOzknGCfuGSkSV+MNMlsFbKfMR3VhygRx2Aw38FCWB4Hog6pccaLnZjrt9UX9PMGthLFcgqQmHZkP91LjolJYHA0TISzG+HimsOr/Z/sgi+/KUYJbENhLFS1DhXCpwE3panwejQ33NBxjRUFbKfM3a33ek1eQJA+bJhzLl+wDvSaBNBLk8G2D/kXRPGjCLuJv4OTflvOhPncJafATvybzflgzV2zNCG+rzuMO9fpElfjDSn7AnrmyOHOlcoEcd6/SJK/2mQ5HDVl/Ppsqyf4IGDhLF8DviV2/L8mCQ8Qkf+t8tLfrzoK86CvOgrznEQ6CvOgrzoKQ5vAEn8X6M3H5RIff1zaN0m/L69VKECox0HYUOFi/p7A230/65/KC6du3B9GaDQxaXjsX8c2TpFtz7daijGZIt4t9k7BNoE0EuTwbxb7J2CG17Xl/TyJNBLk8G8W+ydgm0CaCXJ4NsOjExBdYu3enREt1slp5g2gJ/I6czK7Fq2NkKYxjGMYxjGMW/DfW2NeV1vnXG1LRsJp4IU7JwsUlVKM7ulPg9aeyGpYv6ewNt9P+y75Qn91z+UHSQE/UZHXt/hsCAExBIeVPa6niwYb6vO3w5mowtSjE+Zu1vsnYMdIkr/VK5QI471+kSVt8nYJtAmglyeDeLfdhF8aq83H5RIff1zaN0m/L+VPYG2+n/XP5QdhQ4WL+nsDbfT/rn8W9Y15Hc2UHQZUE3XdlTXH08iTQS5PBvFvsnYJtAmglyeDeLfZOwPhSmxUYby7QJA+OZqMLUow3l2gSB8czUYWpRhSq3gDeFkPEhLF8EK2jACyf/vYG5AR29sOU+UjwrTv3Qn1Ga60PUHdvbzvOPhvw2BADFw7ChxMMOMMdlSQeyGu+OG59Nu7QdlsoO0fbEHuVUWROFikrEzrRZp/2ATISWRX/XP5rpOhPp/3sAQGwNt+eXAMLFbI2BqjwnvS57r7Ds8/6/2ef9f7PdfYdnuvsOz3X2HZ7r7Ds919h2e6+w7PdfYdnuvsOz3X2HZ7r7Ds919h2e6+w7PdfYdnuvsOz3X1l9euPD4T6eFI7/Z7r7Ds919h2e6+w7PdfYdnuvsOz3X2HZ7r7Ds919huWf+w3LdfYdnuvsOz3X2HZ7r7Ds919h2e6+w3LP/Ybln/sOz3Xsuyg7ChwsX9PYG2+n/XP5QdhQ4WL+nsDbfT/rn8oOwocLF/T2Btvp/1z+UHYUOFi/p7A230/65/KDsKHCxf09gbb6f9c/lB2FDhYv6ewNt9P+ufyg7ChwsX9PYG2+n/XP5OAAD+/wVbIAAAAAAAn4AAAAAAAAAAAAAAAAEdwf/D+JA5NUUaupgan+6Q11PIozO4YtEhhhxVE6Bn0mwwJGsLPoWZBhOoUZRBn2us3jsMBlcw3+zWKXA/ycevqeL2VcUCZ7HJTk5Z2QeELiiw9QCaQ/SJr5hvxwoiYjtTJsk2tedlOIWRAity2qLnlyYe0z8zEcmKudSyHTL1hM+fTfdkpBA28xw4Q6z6LXUhn3Y3irUnoetW3zZOjdCmD0Ec4m3vamrfPGAAZBOqbec8leWbLPS5fktv6kO+zRKRilEeFQ5JaaaC/SFztgbjx0v9r40IrYNLiwm3FiA23AK6ieuSt2PUX1ErXKOAxZu5aQMmUVuVCNOnR7ig1xrb26XhciL6rPlLHQOo2B2w83oCAohGLUm7n1Uclh0W2PoG5gSUQzqCa8h596L3kObtUQOUcFQwG/VGmgN/wbeoqgypJaZ9Ad1pq14BjzPL7xvko7Td9OBdqAQcmHnZK/NrQokWEosXVlIAAAVsuac9IKHBKl14eyd6cgJsRJ8Jjy7C1PcbppXZBcEioA95AP7btxnzW9lIK5ii3lthOeLAZ/9bTYaAY4a3dczTswufk+Kd1gacTT6nHvzjQpi4iQJerleH5+Vl1L+HeyBNyBbS/Arnq//hSliBW8RG8rQuFEg8YwAAAACTRKolHGo0PMFowlpivnAqW5GbIJbUk6PpSFGhaCDtWNvmebLUjKEv2DIKNC5Rb33RbdkYP0Z1pvWxk2vX8Bs0Wz0SE490vG78mIcKOFHCd/2gFQBVN+05IsnkvWZRCupf6nAY04WhSH47HzIFYK752hoqCLNw9NiHP2sFGN/aypvWePKBJXJNPaV4EOwFdy9EW6VgUtPOatgvFGVfeurp+O0dhXgtaijl5PJKdppZc7l8kZpDr4oIZDb5loSY2GkNocyiN1avAAw3DABhWMgX76w2Bi8Z+S7vlvumPdV2ATa4vv1+akkojnSXCilN6XZG6IduSjGQiHSN6UESgaU35xEiBccNSUIJyDqGKwUhKrpKlMqKyM6R7HyYGE7OKG4TsLBzmHSd+2z8FQV06c+qrX1lDA6St7Ozk9897rpn1Vv+37t/TYRXwTjF0C0JOVMz/y68BWTLkXJRB46dUKmg1lmIqbaH88g+lzY/7jItjmEZzNU/ob1mFAQF1XfR34Hb7Q6+GWGXL1N1Yp35MuXLlLtMdPwC36648VD1IZBQImbZQSfUq5DHZ9UKkmcRVStX4Yl/4TF6RoBJx/RP0KOcCbSft0fwAAAOxszY3mn18wHOi5s8ukfyn+NpcWrwPY8Zv4FY2p5qxsgvPNV4X5c75abBJZrHOJXzPWjqoEpjOXK6MwCLGSB/nDNuyErFUnw6x+LrOzk4qFvxK6VO4o5+jyVhlBY0H/+IAQJwogEulg22xE2Pe+4K1hoCgKRc17WRC4BG5dS6sKs6cuHId9JEc9EjYWEnJhHtfG1oXGD0Zmq4nIvFkgGIWfQKOHc/QXujQG4b1TOYNot7EQa7hUBrkfpB1R38HN5LPulyrDD60v1CQAGGT4jFEBOciRTGUa4y+sxq2shMO6z7MYdARLm0z9jno52A6CymI84R4FjDYm5ixqqbYm5Y4KB1txQTNLWRwT36DNYIDu421aGQHzBG4C2x3Cy2KrXUcqIMV6PmdHh9bMQhrl5nGaOLT5HKW36pTpukt3a4g9gjxkipoSjdQApI/yM+W13r1mQl5JtydngExG+cvj3fqvv4xO9kHvph3Dbh5ecgWn4wU+kC+jr/7PEL50N6OO3GLS0r0jbiWTBBdrrWgNJcPKYixCBsH4zZzkDSfMEoRBcpwOmzBCarjzg6BMgO0zwNZtBTy/aQRoY2dIVmtph74qzlnz6ssV09llcwjCsz1hQr4wZJquqCrnAVnet46AMeYKHDbmGXuCBOob8vs3k2GS3znL8TD3K9cZvNW1kwhc3e7ftWpHfq53fmSXD9AsR/MDKw2NgxU1jwwqAlMYZI7zlbDPbsQfoYVfQ0g50+kdNj2mJa38h487rMfRk13gbvviOLFe9BTT7yfjIaCs9Tk9M6yGsYfSEtEsLh3p1zrLSyGagmbhdIhAPTAAKJQMpCacsEi/3Fm5PZ0LhgYf37nusemwXbNOOrXxjXHc3CtcE+2InztXgWKDM2SbJN8T4FyOO1EgAzcr/gaxpOwFfrhuZalXVnm2WHbt0AEm2a/YR2mKzGG3dc0yXLxvgUIilopLkkZ5lmoQVFW2QNbLX2LGJfa4hL5dh0PcQCP5KjSg3RM/9hmPsrX8T8d9AyP9C2hSH442Mzj7gawkQXAsqqRtiV+0vxVkVfs/o2A/FWRV+z+pn/cHc+aktsHVggM2YX12d8438ykLcMdcjxYoDGXLeMaClisLczoPGtYSGfSGPHFqszvWhHC4BFUsCZDpw8QvYw1owa/71FJmcsyT5gxSFqvuGhrdsw0KfIWwz057C91k8Uj5lbY/f1IKoX1retCKEYzKbJZZHS5XtYrpChmqC2ePn4o0Lfnylvc5+9reyT8pumr4qhyMx4sHWv0Qngh8EQTe7jElhG6sg1YcKICZz9TInf39jUKvGbcNgAAACFvwRc5z4o1FPf9FAlCDNIN0E79XmH/KPgMa3qboQkdCGNUBlYYPt5UIbw+voDsrPVoiW3CN+73vEFfqohlPup3Y8MmyyeOm9aSjsMAzbl38l3iagAAAl0A9mvFCVX1lI1sa1SHsr6SE6qYqxazYAAAC6OvYllaubKa1iIQAAAAAUeTdooYRBwlxcL381YMy/ZOU7QaRWC5AQLnCQRh904Y+ECmP3Thj4RvgEVhEt7PZaOF/8C3gAyvMVAsUcr0cI0bjlH/9o0FtJhKRBHqMMlIP1roQRYE1pg42/+gPi1hgm7+NQDmPe5SB39B9EdwCYjVcTEgEzimUXkYAAbo0QBCJN0uS5gfLRB6hoNhAfEoVIslv5WTBoC0JXjv9ecfW9c/jmKGPrcZavu85L46M/60qmMkoLWi5/4QZrZnrMyoC3IbIGfMycT04LH1hexUt2iuyGELJryKJiecyefqQMxVkFaUZZHZLuN0x+H5UOXYrpdM2pSvuuFFrgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"/></a>
+      <a class="navbar-brand" href="#"> NV Solutions </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          
+
+          <a class="nav-link active" href="/career" id="color">Career</a>
+          <a class="nav-link active" href="/jobs" id="color">Jobs</a>
+          <a class="nav-link active" href="/about" id="color">About</a>
+          <a class="nav-link active" href="/contact" id="color">Contact us</a>
+          <a class="nav-link active"  id="color"> <a href="{% url "welcome"%}"> log out </a>
+            
+        </div>
+    </div>
+  
+</nav> 
+{% block content %}
+   <div class="container"> 
+   <img style=" margin-top:85px; margin-bottom:20px; background-size: cover ; width:115%; margin-left:10px;  background-position: center;" src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/> </a> 
+   
+    <div class="animated-text">
+      <span> WELCOME  TO </span>
+      <span> </span>
+      <span> NV SOLUTIONS</span>
+      
+    </div>
+
+  </div>
+
+  <div class="d-flex flex-row flex-wrap justify-content-center" style="background-color:#fafbfc;   ">
+    <div class="col-lg-4 col-md-6 " style="background-color:#dce1e6; padding: 10px; margin: 10px; margin-right:20px; margin-left:15px; ">
+      <p style="color:#2457c7; text-align:center; font-size:20px; font-weight:bold;"> Unparalleled Innovation </p> 
+      <p>At the core of NVSolutions lies a relentless commitment to innovation. Our team of experts works tirelessly to push boundaries, challenge the status quo, and bring cutting-edge solutions to the table. With us, you can be assured of software products that redefine industry standards and exceed your expectations.</p>
+    </div>
+        
+    <div class="col-lg-4 col-md-6 " style="background-color:#dce1e6; padding: 10px; margin: 10px; margin-right:20px; margin-left:15px;">
+      <p style="color:#2457c7; text-align:center; font-size:20px; font-weight:bold;"> Unbeatable Value</p> 
+      <p>At NVSolutions, we believe that exceptional software doesn't have to come at a premium. Our competitive pricing structure ensures you get the best value for your investment. With us, you can expect top-notch software products without breaking the bank, making NVSolutions the smart choice for cost-conscious customers.</p>
+    </div>  
+      
+    <div class="col-lg-4 col-md-6 " style="background-color:#dce1e6; padding: 10px; margin: 10px; margin-bottom:15px; margin-right:20px; margin-left:15px;">
+      <p style="color:#2457c7; text-align:center; font-size:20px; font-weight:bold;"> Trusted Reputation</p> 
+      <p>Over the years, NVSolutions has earned the trust and loyalty of countless customers. Our proven track record of delivering on promises and fostering lasting relationships speaks volumes about our integrity and commitment. When you choose NVSolutions, you're selecting a software partner you can rely on, now and in the future.</p>
+    </div>
+  </div>
+  
+  
+  
+  
+  <div style="background-color:#2457c7; height:10vh"> 
+  <p style="font-size:25px; padding-top:10px; margin-bottom:0px; color:white; text-align:center; font-weight:bold"> NV SOLUTIONS </P>
+  </div>
+
+
+
+
+  
+  
+{% endblock content %}   
+  
+</body>
+</html>
